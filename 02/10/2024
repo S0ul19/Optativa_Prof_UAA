@@ -1,0 +1,410 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNbn31FnGXa7eqedKeFW4M+",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/S0ul19/Optativa_Prof_UAA/blob/main/02/10/2024\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "84YaS-wt_heW",
+        "outputId": "ca3d91c2-e298-46c5-e3c9-2bc6e4af7479"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.2.2)\n",
+            "Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (3.7.1)\n",
+            "Requirement already satisfied: seaborn in /usr/local/lib/python3.10/dist-packages (0.13.1)\n",
+            "Requirement already satisfied: plotly in /usr/local/lib/python3.10/dist-packages (5.24.1)\n",
+            "Requirement already satisfied: numpy>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.26.4)\n",
+            "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)\n",
+            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)\n",
+            "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)\n",
+            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.3.0)\n",
+            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (0.12.1)\n",
+            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (4.54.1)\n",
+            "Requirement already satisfied: kiwisolver>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.4.7)\n",
+            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (24.1)\n",
+            "Requirement already satisfied: pillow>=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (10.4.0)\n",
+            "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (3.1.4)\n",
+            "Requirement already satisfied: tenacity>=6.2.0 in /usr/local/lib/python3.10/dist-packages (from plotly) (9.0.0)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.8.2->pandas) (1.16.0)\n",
+            "\n",
+            "Usage:   \n",
+            "  pip3 install [options] <requirement specifier> [package-index-options] ...\n",
+            "  pip3 install [options] -r <requirements file> [package-index-options] ...\n",
+            "  pip3 install [options] [-e] <vcs project url> ...\n",
+            "  pip3 install [options] [-e] <local project path> ...\n",
+            "  pip3 install [options] <archive url/path> ...\n",
+            "\n",
+            "no such option: --upgrade pandas seaborn\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install pandas matplotlib seaborn plotly\n",
+        "!pip install --upgrade pandas seaborn\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import plotly.express as px\n",
+        "import numpy as np\n",
+        "import plotly.express as px\n",
+        "import plotly.graph_objects as go\n",
+        "\n",
+        "import warnings\n",
+        "warnings.filterwarnings(\"ignore\", category=FutureWarning)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 495
+        },
+        "id": "xBI4CwsfAgvB",
+        "outputId": "e09bf30f-6c5e-4835-806c-6b07cd319892"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ParserError",
+          "evalue": "Error tokenizing data. C error: Expected 1 fields in line 41, saw 29\n",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mParserError\u001b[0m                               Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-5-f558a9bafa7c>\u001b[0m in \u001b[0;36m<cell line: 12>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0mwarnings\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfilterwarnings\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"ignore\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcategory\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mFutureWarning\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     11\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 12\u001b[0;31m \u001b[0mdataset\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread_csv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'https://github.com/S0ul19/Optativa_Prof_UAA/blob/main/NetFlix.csv'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msep\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m','\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36mread_csv\u001b[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)\u001b[0m\n\u001b[1;32m   1024\u001b[0m     \u001b[0mkwds\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mupdate\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkwds_defaults\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1025\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1026\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0m_read\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1027\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1028\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36m_read\u001b[0;34m(filepath_or_buffer, kwds)\u001b[0m\n\u001b[1;32m    624\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    625\u001b[0m     \u001b[0;32mwith\u001b[0m \u001b[0mparser\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 626\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0mparser\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnrows\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    627\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    628\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36mread\u001b[0;34m(self, nrows)\u001b[0m\n\u001b[1;32m   1921\u001b[0m                     \u001b[0mcolumns\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1922\u001b[0m                     \u001b[0mcol_dict\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1923\u001b[0;31m                 \u001b[0;34m)\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread\u001b[0m\u001b[0;34m(\u001b[0m  \u001b[0;31m# type: ignore[attr-defined]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1924\u001b[0m                     \u001b[0mnrows\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1925\u001b[0m                 )\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/c_parser_wrapper.py\u001b[0m in \u001b[0;36mread\u001b[0;34m(self, nrows)\u001b[0m\n\u001b[1;32m    232\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    233\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlow_memory\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 234\u001b[0;31m                 \u001b[0mchunks\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reader\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread_low_memory\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnrows\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    235\u001b[0m                 \u001b[0;31m# destructive to chunks\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    236\u001b[0m                 \u001b[0mdata\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0m_concatenate_chunks\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mchunks\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32mparsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader.read_low_memory\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;32mparsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._read_rows\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;32mparsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._tokenize_rows\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;32mparsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._check_tokenize_status\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;32mparsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.raise_parser_error\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;31mParserError\u001b[0m: Error tokenizing data. C error: Expected 1 fields in line 41, saw 29\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "-RHdH12GCJe6"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df = pd.read_csv('https://raw.githubusercontent.com/S0ul19/Optativa_Prof_UAA/refs/heads/main/NetFlix.csv', sep = ',')\n",
+        "df.dtypes"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 460
+        },
+        "id": "XNPntewbCJwK",
+        "outputId": "bad9a920-cfcb-462e-d3c2-adba4be04dd9"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "show_id         object\n",
+              "type            object\n",
+              "title           object\n",
+              "director        object\n",
+              "cast            object\n",
+              "country         object\n",
+              "date_added      object\n",
+              "release_year     int64\n",
+              "rating          object\n",
+              "duration         int64\n",
+              "genres          object\n",
+              "description     object\n",
+              "dtype: object"
+            ],
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>0</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>show_id</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>type</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>title</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>director</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>cast</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>country</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>date_added</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>release_year</th>\n",
+              "      <td>int64</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>rating</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>duration</th>\n",
+              "      <td>int64</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>genres</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>description</th>\n",
+              "      <td>object</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div><br><label><b>dtype:</b> object</label>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "    df['date_added'] = pd.to_datetime(df['date_added'])\n",
+        "except ValueError as e:\n",
+        "   df['date_added'] = pd.to_datetime(df['date_added'], format='%B %d, %Y', errors='coerce')\n",
+        "\n",
+        "print (df['date_added'])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cHO3MJFGCthi",
+        "outputId": "a8d31697-ebdf-43d9-ac41-1b5d4d0782c4"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0      2020-08-14\n",
+            "1      2017-12-15\n",
+            "2      2019-01-05\n",
+            "3      2016-03-01\n",
+            "4      2018-12-03\n",
+            "          ...    \n",
+            "7782   2019-07-12\n",
+            "7783   2020-09-01\n",
+            "7784   2016-08-26\n",
+            "7785   2019-03-08\n",
+            "7786   2016-12-06\n",
+            "Name: date_added, Length: 7787, dtype: datetime64[ns]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df['date_added'].head())\n",
+        "\n",
+        "print(df['date_added'].isnull().sum())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QBaSsbonEXdk",
+        "outputId": "3fbd95d1-c0bc-4cd1-b371-99c153a4b4e2"
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0   2020-08-14\n",
+            "1   2017-12-15\n",
+            "2   2019-01-05\n",
+            "3   2016-03-01\n",
+            "4   2018-12-03\n",
+            "Name: date_added, dtype: datetime64[ns]\n",
+            "10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "rating_map = {\n",
+        "    'G': 1,\n",
+        "    'PG': 2,\n",
+        "    'PG-13': 3,\n",
+        "    'R': 4,\n",
+        "    'NC-17': 5,\n",
+        "    'TV-Y': 1,\n",
+        "    'TV-Y7': 2,\n",
+        "    'TV-G': 1,\n",
+        "    'TV-PG': 2,\n",
+        "    'TV-14': 3,\n",
+        "    'TV-MA': 4\n",
+        "}\n",
+        "df['rating'] = df['rating'].map(rating_map)"
+      ],
+      "metadata": {
+        "id": "55ugbA3mFOcj"
+      },
+      "execution_count": 27,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df[['rating', 'rating_numeric']].head())\n",
+        "\n",
+        "print(df['rating_numerico'].describe())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 321
+        },
+        "id": "dxIl2_v6F95Q",
+        "outputId": "213e6aba-99d4-4a12-96aa-9d25adbae031"
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyError",
+          "evalue": "\"['rating_numeric'] not in index\"",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-31-afa8a8a2dd1c>\u001b[0m in \u001b[0;36m<cell line: 1>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'rating'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'rating_numeric'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhead\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'rating_numerico'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdescribe\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py\u001b[0m in \u001b[0;36m__getitem__\u001b[0;34m(self, key)\u001b[0m\n\u001b[1;32m   4106\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mis_iterator\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   4107\u001b[0m                 \u001b[0mkey\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 4108\u001b[0;31m             \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_indexer_strict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"columns\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   4109\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   4110\u001b[0m         \u001b[0;31m# take() does not accept boolean indexers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36m_get_indexer_strict\u001b[0;34m(self, key, axis_name)\u001b[0m\n\u001b[1;32m   6198\u001b[0m             \u001b[0mkeyarr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnew_indexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reindex_non_unique\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkeyarr\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6199\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 6200\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_raise_if_missing\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkeyarr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0maxis_name\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   6201\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6202\u001b[0m         \u001b[0mkeyarr\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtake\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mindexer\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36m_raise_if_missing\u001b[0;34m(self, key, indexer, axis_name)\u001b[0m\n\u001b[1;32m   6250\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6251\u001b[0m             \u001b[0mnot_found\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mensure_index\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mmissing_mask\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnonzero\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munique\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 6252\u001b[0;31m             \u001b[0;32mraise\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"{not_found} not in index\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   6253\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6254\u001b[0m     \u001b[0;34m@\u001b[0m\u001b[0moverload\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyError\u001b[0m: \"['rating_numeric'] not in index\""
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numeric_columns = ['release_year', 'duration', 'rating_numeric'] # Changed 'rating_numeric' to 'rating_numerico'\n",
+        "df[numeric_columns] = df[numeric_columns].apply(pd.to_numeric, errors='coerce')\n",
+        "\n",
+        "print(df[numeric_columns].head())\n",
+        "\n",
+        "print(df[numeric_columns].describe())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 356
+        },
+        "id": "w4pOddkLHL3T",
+        "outputId": "6165339b-a70b-4011-ee62-5e331aa289b1"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyError",
+          "evalue": "\"['rating_numeric'] not in index\"",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-35-0b63daa73d6c>\u001b[0m in \u001b[0;36m<cell line: 2>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mnumeric_columns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m'release_year'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'duration'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'rating_numeric'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;31m# Changed 'rating_numeric' to 'rating_numerico'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mnumeric_columns\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mnumeric_columns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mapply\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mto_numeric\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0merrors\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'coerce'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mnumeric_columns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhead\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py\u001b[0m in \u001b[0;36m__getitem__\u001b[0;34m(self, key)\u001b[0m\n\u001b[1;32m   4106\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mis_iterator\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   4107\u001b[0m                 \u001b[0mkey\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 4108\u001b[0;31m             \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_indexer_strict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"columns\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   4109\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   4110\u001b[0m         \u001b[0;31m# take() does not accept boolean indexers\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36m_get_indexer_strict\u001b[0;34m(self, key, axis_name)\u001b[0m\n\u001b[1;32m   6198\u001b[0m             \u001b[0mkeyarr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnew_indexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reindex_non_unique\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkeyarr\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6199\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 6200\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_raise_if_missing\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkeyarr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0maxis_name\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   6201\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6202\u001b[0m         \u001b[0mkeyarr\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtake\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mindexer\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36m_raise_if_missing\u001b[0;34m(self, key, indexer, axis_name)\u001b[0m\n\u001b[1;32m   6250\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6251\u001b[0m             \u001b[0mnot_found\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlist\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mensure_index\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mmissing_mask\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnonzero\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munique\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 6252\u001b[0;31m             \u001b[0;32mraise\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"{not_found} not in index\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   6253\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   6254\u001b[0m     \u001b[0;34m@\u001b[0m\u001b[0moverload\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyError\u001b[0m: \"['rating_numeric'] not in index\""
+          ]
+        }
+      ]
+    }
+  ]
+}
